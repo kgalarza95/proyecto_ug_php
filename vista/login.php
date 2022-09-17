@@ -11,13 +11,10 @@ include_once("../controller/login.php");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.101.0">
+
   <title>Iniciar Sesión</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/sign-in/">
-
 
 
   <!-- Bootstrap core CSS -->
@@ -43,8 +40,8 @@ include_once("../controller/login.php");
   </style>
 
 
-  <!-- Custom styles for this template -->
   <link href="../css/signin.css" rel="stylesheet">
+  <?php include "../generales/head.php"; ?>
 </head>
 
 <body class="text-center">

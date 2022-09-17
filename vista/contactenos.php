@@ -3,12 +3,17 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/estilo.css" />
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" /> -->
+
+    <title>Universidad de Guayaquil</title>
+
+    <!--<link rel="stylesheet" href="estilosForm.css";>-->
+    <?php include "../generales/head.php"; ?>
 </head>
 
 <body>
+    <?php include_once "../generales/nav_bar.php" ?>
+    
     <div class="container">
         <h1 class="text-left" style="color: blue">Formulario de Registro</h1>
         <div class="row">

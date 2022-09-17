@@ -3,67 +3,15 @@
 
 <head>
    <meta charset="utf-8">
-   <title>Polution Zero</title>
-   <link rel="stylesheet" href="../css/estilo.css" ;>
-   <!--<link rel="stylesheet" href="estilosForm.css";>-->
+   <title>Universidad de Guayaquil</title>
 
+   <!--<link rel="stylesheet" href="estilosForm.css";>-->
+   <?php include "../generales/head.php"; ?>
 </head>
-<h1 style="text-align: center; font-size: 60px; font-family: cooper; ">Contaminacion de Suelo</h1>
+
 
 <body>
-
-
-   <div class="Menu-Bar">
-      <ul>
-         <li class="active"><a href="#">Introduccion</a>
-            <div class="Sub-Menu-4">
-               <ul>
-                  <li><a href="intro.html" target="_blank">Definicion</li>
-                  <!--li><a href="#">Causas</li>
-                  <li><a href="#">Consecuencias</li-->
-               </ul>
-            </div>
-
-         </li>
-
-         <li><a href="#">Desarrollo</a>
-            <div class="Sub-Menu-1">
-               <ul>
-                  <li><a href="#">Inicios</li>
-                  <li><a href="#">Causas</li>
-                  <li><a href="#">Consecuencias</li>
-               </ul>
-            </div>
-         </li>
-
-         <li><a href="#">Recomendaciones</a>
-            <div class="Sub-Menu-2">
-               <ul>
-                  <li><a href="#">Cuidado del suelo</li>
-                  <li><a href="#">Mingas</li>
-                  <li><a href="#">Agradecimientos</li>
-               </ul>
-            </div>
-
-         </li>
-
-         <li>
-            <a href="#">Conclusiones</a>
-            <div class="Sub-Menu-3">
-               <ul>
-                  <li><a href="#">Rescatar el suelo</li>
-                  <li><a href="#">Lluvia de ideas</li>
-                  <li><a href="#">Salvar el suelo</li>
-               </ul>
-            </div>
-         </li>
-
-
-         <li><a href="registro.php" target="_blank">Registro</a></li>
-         <li><a href="practica.php" target="_blank">Maquetacion</a></li>
-         <li><a href="login.php">Cerrar Sesión</a></li>
-      </ul>
-   </div>
+   <?php include_once "../generales/nav_bar.php"?>
 
    <!--<h2>Introduccion </h2><br>
        <h3>Julio Vergara</h3>
@@ -72,8 +20,7 @@
       <!--<video width="320" height="240" controls>
          <source src="https://www.youtube.com/watch?v=DY_cnjtx4Nk" type="video/mp4">
          </video>-->
-      <br> <iframe width="400" height="250" src="https://www.youtube.com/embed/DY_cnjtx4Nk" title="YouTube video player"
-         frameborder="0" allow="accelerometer;
+      <br> <iframe width="400" height="250" src="https://www.youtube.com/embed/DY_cnjtx4Nk" title="YouTube video player" frameborder="0" allow="accelerometer;
               autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
       </iframe>
    </div><br>
@@ -91,7 +38,7 @@
    <h3>Other</h3>
    <hr>
 
-
+<?php include_once "../generales/scripts.php"; ?>
 
 </body>
 
