@@ -13,57 +13,76 @@
 
 <body>
     <?php include_once "../generales/nav_bar.php" ?>
-    
     <div class="container">
-        <h1 class="text-left" style="color: blue">Formulario de Registro</h1>
         <div class="row">
-            <div class="col-md-12">
 
-                <form method="post" action="../php/enviar.php">
-                    <ul class="contact-form">
-                        <li>
-                            <div class="col-md-6">
-                                <input name="nombre" placeholder="Escribe tu nombre" required="required" size="8" type="text" />
-                            </div>
+            <div class="col-sm-6 col-lg-6 mb-5">
 
-                            <div class="col-md-6">
-                                <input name="email" placeholder="Email" required="required" size="8" type="email" />
-                            </div>
-                        </li>
 
-                        <li>
-                            <div class="col-md-6">
-                                <input name="telefono" placeholder="Escribe tu numero" required="required" size="8" type="text" />
-                            </div>
 
-                            <div class="col-md-6">
-                                <input name="empresa" placeholder="Companía/Agencia" required="required" size="8" type="text" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-md-12">
-                                <input name="asunto" placeholder="Asunto" required="required" size="8" type="text" />
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-md-12">
-                                <textarea class="span12" name="mensaje" placeholder="Escribe tu proyecto o mensaje" required="required"></textarea>
-                            </div>
-                        </li>
+                <form action="#" method="POST" class="p-5 bg-white">
 
-                        <li>
-                            <div class="col-md-12">
-                                <button type="submit">
-                                    Enviar
-                                    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-                                </button>
-                            </div>
-                        </li>
-                    </ul>
+                    <div class="row form-group">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <label class="font-weight-bold" for="nombre">Nombre</label>
+                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" onkeypress='return soloLetras(event)'>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="font-weight-bold" for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <label class="font-weight-bold" for="telefono">Telefono</label>
+                            <input type="text" id="telefono" name="telefono" class="form-control" placeholder="Telefono" maxlength="10" onkeypress=' return soloNumeros(event)'>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="font-weight-bold" for="mensaje">Mensaje</label>
+                            <textarea name="mensaje" id="mensaje" cols="30" rows="5" class="form-control" placeholder="Mensaje"></textarea>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary pill px-4 py-2" id="btn-enviar">Contactarme</button>
+                        </div>
+                    </div>
+
+
                 </form>
+
+
             </div>
+
+            <div class="col-lg-4">
+                <div class="p-4 mb-3 bg-white">
+                    <h3 class="mb-3 my-4 text-center">
+                        Lista de
+                        <strong class="letra-negra font-weight-bold">Espera </strong>
+                    </h3>
+
+                    <!-- <h3 class="h5 letra-negra mb-3"></h3> -->
+                    <div id="colaboradores">
+                    </div>
+                    <div id="nuevoColaborador"></div>
+                </div>
+            </div>
+
         </div>
     </div>
+
+
+    <?php include_once "../generales/footer.php"; ?>
+    <?php include_once "../generales/scripts.php"; ?>
 </body>
 
 </html>

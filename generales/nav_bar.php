@@ -1,5 +1,4 @@
-<h1 style="text-align: center; font-size: 60px; font-family: cooper; "
-class="titulo">Proyecto Final</h1>
+<h1 style="text-align: center; font-size: 60px; font-family: cooper; " class="titulo">Proyecto Final</h1>
 
 
 
@@ -18,18 +17,18 @@ class="titulo">Proyecto Final</h1>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Información Base</a>
+                <a class="nav-link" href="img_bd.php">Información Base</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                     Registro
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Página #1</a>
+                    <a class="dropdown-item" href="pagina1.php">Página #1 - Registro Admin</a>
                     <a class="dropdown-item" href="contactenos.php">Contactenos #4</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Página #8</a>
-                    <a class="dropdown-item" href="#">Página #11</a>
+                    <a class="dropdown-item" href="suscripcion.php">Suscripción #8</a>
+                    <a class="dropdown-item" href="mvc.php">Página #11</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -37,11 +36,11 @@ class="titulo">Proyecto Final</h1>
                     Consultas
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Página #3</a>
-                    <a class="dropdown-item" href="#">Página #5</a>
+                    <a class="dropdown-item" href="pagina3.php">Página #3 - Petroleo</a>
+                    <a class="dropdown-item" href="pagina5.php">Página #5 - Consultas</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Página #6</a>
-                    <a class="dropdown-item" href="#">Página #7</a>
+                    <a class="dropdown-item" href="preguntas.php">Preguntas #6</a>
+                    <a class="dropdown-item" href="pagina7.php">Página #7 - Filtros</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -55,7 +54,7 @@ class="titulo">Proyecto Final</h1>
             </li>
 
         </ul>
-        
+
         <form class="form-inline my-2 my-lg-0">
             <a class="btn btn-outline-success my-2 my-sm-0" href="login.php">Cerrar Sesión</a>
         </form>
