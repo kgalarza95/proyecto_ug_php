@@ -1,0 +1,21 @@
+footer {
+    background: #323a40;
+    color: #ffffff;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .texto {
+    color: white;
+    background: #28a745;
+    text-align: center;
+}
+
+.titulo:hover {
+    color: #28a745;
+}
