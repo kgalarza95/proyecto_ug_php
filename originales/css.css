@@ -1,0 +1,100 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+html{
+  background: #c0c0c0;
+}
+body{
+  height: 750px;
+  width: 750px;
+  background: orange;
+  margin:auto;
+}/*
+header{
+  height: 250px;
+  width:750px;
+  background: lightgreen;/*--RGB(200,100,12);--
+}
+#banner{
+  width: 500px;
+  height: 250px;
+  background: #000;
+  float: right;
+}
+nav{
+  height: 65px;
+  background: blue;
+}
+main{
+  height: 400px;
+  background: pink;
+}
+footer{
+  height: 50px;
+  background: orange;
+}*/
+#bloque1{
+  height: 150px;
+  background: #81D1E5;
+}
+#bloque2{
+  height: 80px;
+  background: #C5E4EC;
+}
+nav a{
+  text-decoration: none;
+  padding: 20px;
+  }
+nav ul{
+  list-style: none;
+}
+	nav ul li{
+    float: left;
+}
+#bloque3{
+height: 220px;
+width: 500px;
+background: #888E8F;
+}
+#bloque4{
+height: 220px;
+width: 500px;
+background: #888E8F;
+}
+hr{
+  width: 500px;
+}
+#Footer{
+  height: 80px;
+  background: #060606;
+}
+.Derecha{
+height: 220px;
+width: 250px;
+background: #ABB183;
+float:left;
+
+}
+
+#bloquex{
+  height: 220px;
+  width: 250px;
+  background: #ABB183;
+  float:left;
+}
+.derecha{
+  float:right;
+}
+.derechaDown{
+  float:right;
+}
+
+
+
+/*#Logo{
+height: 100px;
+width: 700px;
+background: #888E8F;
+float:inherit;
+}*/
