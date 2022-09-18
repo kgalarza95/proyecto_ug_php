@@ -1,3 +1,8 @@
+<?php
+include("../config/conexion.php");
+$sql = "SELECT p.NOMBRE, pe.* FROM bd_php_p2.petroleo_p3 pe join bd_php_p2.pais p on p.id = pe.id_pais; ";
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -12,10 +17,17 @@
    <!-- Bootstrap core CSS -->
    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
+   <style>
+      .my-custom-scrollbar {
+         position: relative;
+         height: 450PX;
+         overflow: auto;
+      }
 
-
-   <!-- Custom styles for this template -->
-   <link href="../lib/dasbo/dashboard.css" rel="stylesheet">
+      .table-wrapper-scroll-y {
+         display: block;
+      }
+   </style>
 </head>
 
 
@@ -25,141 +37,65 @@
       <!-- <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4"> -->
       <main role="main" class="col-sm-12">
          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Dashboard</h1>
+            <h1 class="mb-3 my-4 ">
+               Pág. #12 - Dashboard
+               <strong class="letra-negra font-weight-bold">Información Energética </strong>
+            </h1>
          </div>
 
          <canvas class="my-4 w-100" id="myChart" width="900" height="380">
 
          </canvas>
 
-         <h2>Section title</h2>
-         <div class="table-responsive">
-            <table class="table table-striped table-sm">
-               <thead>
-                  <tr>
-                     <th>#</th>
-                     <th>Header</th>
-                     <th>Header</th>
-                     <th>Header</th>
-                     <th>Header</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td>1,001</td>
-                     <td>random</td>
-                     <td>data</td>
-                     <td>placeholder</td>
-                     <td>text</td>
-                  </tr>
-                  <tr>
-                     <td>1,002</td>
-                     <td>placeholder</td>
-                     <td>irrelevant</td>
-                     <td>visual</td>
-                     <td>layout</td>
-                  </tr>
-                  <tr>
-                     <td>1,003</td>
-                     <td>data</td>
-                     <td>rich</td>
-                     <td>dashboard</td>
-                     <td>tabular</td>
-                  </tr>
-                  <tr>
-                     <td>1,003</td>
-                     <td>information</td>
-                     <td>placeholder</td>
-                     <td>illustrative</td>
-                     <td>data</td>
-                  </tr>
-                  <tr>
-                     <td>1,004</td>
-                     <td>text</td>
-                     <td>random</td>
-                     <td>layout</td>
-                     <td>dashboard</td>
-                  </tr>
-                  <tr>
-                     <td>1,005</td>
-                     <td>dashboard</td>
-                     <td>irrelevant</td>
-                     <td>text</td>
-                     <td>placeholder</td>
-                  </tr>
-                  <tr>
-                     <td>1,006</td>
-                     <td>dashboard</td>
-                     <td>illustrative</td>
-                     <td>rich</td>
-                     <td>data</td>
-                  </tr>
-                  <tr>
-                     <td>1,007</td>
-                     <td>placeholder</td>
-                     <td>tabular</td>
-                     <td>information</td>
-                     <td>irrelevant</td>
-                  </tr>
-                  <tr>
-                     <td>1,008</td>
-                     <td>random</td>
-                     <td>data</td>
-                     <td>placeholder</td>
-                     <td>text</td>
-                  </tr>
-                  <tr>
-                     <td>1,009</td>
-                     <td>placeholder</td>
-                     <td>irrelevant</td>
-                     <td>visual</td>
-                     <td>layout</td>
-                  </tr>
-                  <tr>
-                     <td>1,010</td>
-                     <td>data</td>
-                     <td>rich</td>
-                     <td>dashboard</td>
-                     <td>tabular</td>
-                  </tr>
-                  <tr>
-                     <td>1,011</td>
-                     <td>information</td>
-                     <td>placeholder</td>
-                     <td>illustrative</td>
-                     <td>data</td>
-                  </tr>
-                  <tr>
-                     <td>1,012</td>
-                     <td>text</td>
-                     <td>placeholder</td>
-                     <td>layout</td>
-                     <td>dashboard</td>
-                  </tr>
-                  <tr>
-                     <td>1,013</td>
-                     <td>dashboard</td>
-                     <td>irrelevant</td>
-                     <td>text</td>
-                     <td>visual</td>
-                  </tr>
-                  <tr>
-                     <td>1,014</td>
-                     <td>dashboard</td>
-                     <td>illustrative</td>
-                     <td>rich</td>
-                     <td>data</td>
-                  </tr>
-                  <tr>
-                     <td>1,015</td>
-                     <td>random</td>
-                     <td>tabular</td>
-                     <td>information</td>
-                     <td>text</td>
-                  </tr>
-               </tbody>
-            </table>
-         </div>
+         <canvas class="my-4 w-100" id="chartBarras" width="900" height="380">
+
+         </canvas>
+
+         <canvas class="my-4 w-100" id="chartPastel" width="900" height="380">
+
+         </canvas>
+
+         <article class="row">
+
+            <div class="col-md-12">
+               <h1 class="mb-3 my-4 text-center">
+                  Datos
+
+               </h1>
+               <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                  <!-- <table class="table table-sm table-dark  table-hover table-bordered table-striped" style="width: 100%"> -->
+                  <table class="table table-bordered table-striped mb-0 table-hover" style="width: 100%">
+                     <!-- <table class="table table-striped table-sm"> -->
+                     <caption>ventas de petroleo de los paises de Ecuador, Colombia, Peru, Brasil y Argentina de los años 2020, 2021, 2022</caption>
+                     <thead>
+                        <tr>
+                           <th scope="col">ID</th>
+                           <th scope="col">NOMBRE</th>
+                           <th scope="col">VENTA</th>
+                           <th scope="col">MES</th>
+                           <th scope="col">AÑO</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <?php
+                        $resultado = mysqli_query($conexion, $sql);
+                        while ($srow = mysqli_fetch_assoc($resultado)) { ?>
+                           <tr>
+                              <th scope="row"><?php echo $srow["ID"]; ?></th>
+                              <td scope="col"><?php echo $srow["NOMBRE"]; ?></td>
+                              <td scope="col"><?php echo $srow["VENTA"]; ?></td>
+                              <td scope="col"><?php echo $srow["MES"]; ?></td>
+                              <td scope="col"><?php echo $srow["ANIO"]; ?></td>
+                           </tr>
+                        <?php  }
+                        mysqli_free_result($resultado); ?>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </article>
+
+
       </main>
 
    </div>

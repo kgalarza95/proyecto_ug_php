@@ -2,7 +2,6 @@
 
 
 
-
 <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
     <a class="navbar-brand" href="#">UG</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +38,7 @@
                     <a class="dropdown-item" href="pagina3.php">Página #3 - Petroleo</a>
                     <a class="dropdown-item" href="pagina5.php">Página #5 - Consultas</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="preguntas.php">Preguntas #6</a>
+                    <a class="dropdown-item" href="preguntas.php">Página #6 - Preguntas</a>
                     <a class="dropdown-item" href="pagina7.php">Página #7 - Filtros</a>
                 </div>
             </li>
@@ -56,7 +55,10 @@
         </ul>
 
         <form class="form-inline my-2 my-lg-0">
-            <a class="btn btn-outline-success my-2 my-sm-0" href="login.php">Cerrar Sesión</a>
+            <a class="btn btn-outline-success my-2 my-sm-0" href="login.php">
+                Cerrar Sesión
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+            </a>
         </form>
     </div>
 </nav>

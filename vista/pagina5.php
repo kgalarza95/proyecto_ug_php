@@ -1,3 +1,15 @@
+<?php
+include("../config/conexion.php");
+$sql_var_flow = "SELECT * FROM bd_php_p2.ambito_var_flow_p5 LIMIT 10 ";
+$sql_espania = "SELECT * FROM bd_php_p2.ciud_espania LIMIT 10 ";
+$sql_pais = "SELECT * FROM bd_php_p2.pais LIMIT 10 ";
+$sql_residuos = "SELECT * FROM bd_php_p2.residuos_urbanos LIMIT 10 ";
+$sql_ods = "SELECT * FROM bd_php_p2.ods LIMIT 10 ";
+$sql_areas = "SELECT * FROM bd_php_p2.area_protegida LIMIT 10 ";
+//$consulta_areasprotegidas = "SELECT *FROM consulta_areasprotegidas LIMIT 10";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,168 +27,277 @@
     <?php include_once "../generales/nav_bar.php" ?>
     <section class="container mt-5">
         &nbsp;
-        <h3 class="titulo1">A continuación, indique la sección a consultar:</H3>&nbsp;
-
-
-        <!--  mensajes -->
-
+        <h3 class="text-center titulo">Balance Energético 1971-2019 - Consultas</H3>
 
         <!-- formulario -->
-        <div class="form-registro">
-            <h4>Escoja una opción</h4>
+        <div class="">
+            <h4>Filtro de Búsqueda</h4>
             <form method="post" id="form">
-                <div class="combo1">
-
-                    Balance Energético 1971-2019:
-                    <select id="opciones" class="opciones" name="opciones" required <?php $opciones = $_POST['opciones'] ?>>
-                        <option value="0">Seleccione una opción</option>
-                        <option value="1">Residuos Urbanos Tratamientos 1990-2019</option>
-                        <option value="2">Inversión Protección Ambiental España 2008-2018</option>
-                        <option value="3">Ambiente Biodiversidad áreas protegidas 2011-2019</option>
-                        <option value="4">ODS Objetivo Desarrollo Sostenible</option>
-                        <option value="5">Ambito VAR Flow ODS</option>
-                        <option value="6">Países ISO 3166_1 Cod2-3 caracteres</option>
-                    </select>&nbsp;
-
+                <div class="row">
+                    <div class="col-sm-10">
+                        <select id="opciones" class="custom-select" name="opciones" required <?php $opciones = $_POST['opciones'] ?>>
+                            <option value="0" selected>Seleccione una opción</option>
+                            <option value="1">Residuos Urbanos Tratamientos 1990-2019</option>
+                            <option value="2">Inversión Protección Ambiental España 2008-2018</option>
+                            <option value="3">Ambiente Biodiversidad áreas protegidas 2011-2019</option>
+                            <option value="4">ODS Objetivo Desarrollo Sostenible</option>
+                            <option value="5">Ambito VAR Flow ODS</option>
+                            <option value="6">Países ISO 3166_1 Cod2-3 caracteres</option>
+                        </select>&nbsp;
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-primary " type="submit" value="Consultar">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </div>
-
-
-
-                <input class="btn btn-primary  " type="submit" onclick="validarcombo()" value="Consultar">
-
             </form>
-
-
         </div>
 
-        <!-- TABLA DE CONSULTAS -->
-
-        <div class="container-table">
-            <div class="table__title">Datos Registrados</div>
-            <div class="table__header">Año</div>
-            <div class="table__header">País</div>
-            <div class="table__header">Cat. Energía</div>
-            <div class="table__header">Unidad Medida</div>
-            <div class="table__header">Import/Export</div>
-            <div class="table__header">Uso comb. Fósiles</div>
-            <div class="table__header">P. gas natural</div>
-            <div class="table__header">EECF España Zonas Protegidas</div>
-            <div class="table__header">EECF España Inv. Protección M.A</div>
-            <div class="table__header">Trat. residuos en España</div>
+        <?php
+        switch ($opciones) {
+            case 1: //residuos
+        ?>
+                <table class="table table-sm table-dark table-responsive table-hover table-bordered">
+                    <caption>Residuos Urbanos Tratamientos 1990-2019</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">ID_RESIDUOS</th>
+                            <th scope="col">ANIO_RESIDUOS</th>
+                            <th scope="col">PAIS_RESIDUOS</th>
+                            <th scope="col">CAT_RESIDUOS</th>
+                            <th scope="col">UNIDAD_RESIDUOS</th>
+                            <th scope="col">IMPORT_RESIDUOS</th>
+                            <th scope="col">USO_RESIDUOS</th>
+                            <th scope="col">GAS_RESIDUOS</th>
+                            <th scope="col">ZONAS_RESIDUOS</th>
+                            <th scope="col">INVERSION_RESIDUOS</th>
+                            <th scope="col">TRATAMIENTO_RESIDUOS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $resultado = mysqli_query($conexion, $sql_residuos);
+                        while ($srow = mysqli_fetch_assoc($resultado)) { ?>
+                            <tr>
+                                <th scope="row"><?php echo $srow["ID_RESIDUOS"]; ?></th>
+                                <td scope="col"><?php echo $srow["ANIO_RESIDUOS"]; ?></td>
+                                <td scope="col"><?php echo $srow["PAIS_RESIDUOS"]; ?></td>
+                                <td scope="col"><?php echo $srow["CAT_RESIDUOS"]; ?></td>
+                                <td scope="col"><?php echo $srow["UNIDAD_RESIDUOS"]; ?></td>
+                                <td scope="col"><?php echo $srow["IMPORT_RESIDUOS"]; ?></td>
+                                <td scope="col"><?php echo $srow["USO_RESIDUOS"]; ?></td>
+                                <td scope="col"><?php echo $srow["GAS_RESIDUOS"]; ?></td>
+                                <td scope="col"><?php echo $srow["ZONAS_RESIDUOS"]; ?></td>
+                                <td scope="col"><?php echo $srow["INVERSION_RESIDUOS"]; ?></td>
+                                <td scope="col"><?php echo $srow["TRATAMIENTO_RESIDUOS"]; ?></td>
+                            </tr>
+                        <?php  }
+                        mysqli_free_result($resultado); ?>
+                    </tbody>
+                </table>
             <?php
-
-            switch ($opciones) {
-                case 1:
-
-                    $resultado = mysqli_query($conexion, $consulta_residuosurbanos);
-                    while ($srow = mysqli_fetch_assoc($resultado)) { ?>
-                        <div name="anio1" class="table__item"><?php echo $srow["anio_residuos"]; ?></div>
-                        <div name="pais1" class="table__item"><?php echo $srow["pais_residuos"]; ?></div>
-                        <div name="categoria1" class="table__item"><?php echo $srow["cat_residuos"]; ?></div>
-                        <div name="unidad1" class="table__item"><?php echo $srow["unidad_residuos"]; ?></div>
-                        <div name="importa1" class="table__item"><?php echo $srow["import_residuos"]; ?></div>
-                        <div name="uso1" class="table__item"><?php echo $srow["uso_residuos"]; ?></div>
-                        <div name="gas1" class="table__item"><?php echo $srow["gas_residuos"]; ?></div>
-                        <div name="zonas1" class="table__item"><?php echo $srow["zonas_residuos"]; ?></div>
-                        <div name="inversion1" class="table__item"><?php echo $srow["inversion_residuos"]; ?></div>
-                        <div name="tratamiento1" class="table__item"><?php echo $srow["tratamiento_residuos"]; ?></div>
-                    <?php  }
-                    mysqli_free_result($resultado);
-
-                    break;
-                case 2:
-                    $resultadoInversiones = mysqli_query($conexion, $consulta_inversion);
-                    while ($srow = mysqli_fetch_assoc($resultadoInversiones)) { ?>
-                        <div class="table__item"><?php echo $srow["anio_inversion"]; ?></div>
-                        <div class="table__item"><?php echo $srow["pais_inversion"]; ?></div>
-                        <div class="table__item"><?php echo $srow["cat_inversion"]; ?></div>
-                        <div class="table__item"><?php echo $srow["unidad_inversion"]; ?></div>
-                        <div class="table__item"><?php echo $srow["import_inversion"]; ?></div>
-                        <div class="table__item"><?php echo $srow["uso_inversion"]; ?></div>
-                        <div class="table__item"><?php echo $srow["gas_inversion"]; ?></div>
-                        <div class="table__item"><?php echo $srow["zonas_inversion"]; ?></div>
-                        <div class="table__item"><?php echo $srow["inversion_inversion"]; ?></div>
-                        <div class="table__item"><?php echo $srow["tratamiento_inversion"]; ?></div>
-                    <?php  }
-                    mysqli_free_result($resultadoInversiones);
-
-                    break;
-                case 3:
-
-                    $resultadoAreas = mysqli_query($conexion, $consulta_areasprotegidas);
-                    while ($srow = mysqli_fetch_assoc($resultadoAreas)) { ?>
-                        <div class="table__item"><?php echo $srow["anio_areasprotegidas"]; ?></div>
-                        <div class="table__item"><?php echo $srow["pais_areasprotegidas"]; ?></div>
-                        <div class="table__item"><?php echo $srow["cat_areasprotegidas"]; ?></div>
-                        <div class="table__item"><?php echo $srow["unidad_areasprotegidas"]; ?></div>
-                        <div class="table__item"><?php echo $srow["import_areasprotegidas"]; ?></div>
-                        <div class="table__item"><?php echo $srow["uso_areasprotegidas"]; ?></div>
-                        <div class="table__item"><?php echo $srow["gas_areasprotegidas"]; ?></div>
-                        <div class="table__item"><?php echo $srow["zonas_areasprotegidas"]; ?></div>
-                        <div class="table__item"><?php echo $srow["inversion_areasprotegidas"]; ?></div>
-                        <div class="table__item"><?php echo $srow["tratamiento_areasprotegidas"]; ?></div>
-                    <?php  }
-                    mysqli_free_result($resultadoAreas);
-                    break;
-                case 4:
-
-                    $resultadoDesarrollo = mysqli_query($conexion, $consulta_desarrollosostenible);
-                    while ($srow = mysqli_fetch_assoc($resultadoDesarrollo)) { ?>
-                        <div class="table__item"><?php echo $srow["anio_desarrollosostenible"]; ?></div>
-                        <div class="table__item"><?php echo $srow["pais_desarrollosostenible"]; ?></div>
-                        <div class="table__item"><?php echo $srow["cat_desarrollosostenible"]; ?></div>
-                        <div class="table__item"><?php echo $srow["unidad_desarrollosostenible"]; ?></div>
-                        <div class="table__item"><?php echo $srow["import_desarrollosostenible"]; ?></div>
-                        <div class="table__item"><?php echo $srow["uso_desarrollosostenible"]; ?></div>
-                        <div class="table__item"><?php echo $srow["gas_desarrollosostenible"]; ?></div>
-                        <div class="table__item"><?php echo $srow["zonas_desarrollosostenible"]; ?></div>
-                        <div class="table__item"><?php echo $srow["inversion_desarrollosostenible"]; ?></div>
-                        <div class="table__item"><?php echo $srow["tratamiento_desarrollosostenible"]; ?></div>
-                    <?php  }
-                    mysqli_free_result($resultadoDesarrollo);
-                    break;
-                case 5:
-
-                    $resultadoAmbito = mysqli_query($conexion, $consulta_ambitovar);
-                    while ($srow = mysqli_fetch_assoc($resultadoAmbito)) { ?>
-                        <div class="table__item"><?php echo $srow["anio_ambitovar"]; ?></div>
-                        <div class="table__item"><?php echo $srow["pais_ambitovar"]; ?></div>
-                        <div class="table__item"><?php echo $srow["cat_ambitovar"]; ?></div>
-                        <div class="table__item"><?php echo $srow["unidad_ambitovar"]; ?></div>
-                        <div class="table__item"><?php echo $srow["import_ambitovar"]; ?></div>
-                        <div class="table__item"><?php echo $srow["uso_ambitovar"]; ?></div>
-                        <div class="table__item"><?php echo $srow["gas_ambitovar"]; ?></div>
-                        <div class="table__item"><?php echo $srow["zonas_ambitovar"]; ?></div>
-                        <div class="table__item"><?php echo $srow["inversion_ambitovar"]; ?></div>
-                        <div class="table__item"><?php echo $srow["tratamiento_ambitovar"]; ?></div>
-                    <?php  }
-                    mysqli_free_result($resultadoAmbito);
-                    break;
-                case 6:
-                    $resultadoPais = mysqli_query($conexion, $consulta_paisesiso);
-                    while ($srow = mysqli_fetch_assoc($resultadoPais)) { ?>
-                        <div class="table__item"><?php echo $srow["anio_paisesiso"]; ?></div>
-                        <div class="table__item"><?php echo $srow["pais_paisesiso"]; ?></div>
-                        <div class="table__item"><?php echo $srow["cat_paisesiso"]; ?></div>
-                        <div class="table__item"><?php echo $srow["unidad_paisesiso"]; ?></div>
-                        <div class="table__item"><?php echo $srow["import_paisesiso"]; ?></div>
-                        <div class="table__item"><?php echo $srow["uso_paisesiso"]; ?></div>
-                        <div class="table__item"><?php echo $srow["gas_paisesiso"]; ?></div>
-                        <div class="table__item"><?php echo $srow["zonas_paisesiso"]; ?></div>
-                        <div class="table__item"><?php echo $srow["inversion_paisesiso"]; ?></div>
-                        <div class="table__item"><?php echo $srow["tratamiento_paisesiso"]; ?></div>
-            <?php  }
-                    mysqli_free_result($resultadoPais);
-                    break;
-            }
-
-
+                break;
+            case 2: //espania
             ?>
+                <table class="table table-sm table-dark table-responsive table-hover table-bordered">
+                    <caption>Inversión Protección Ambiental España 2008-2018</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">PERIODO</th>
+                            <th scope="col">SECTOR</th>
+                            <th scope="col">TIPO</th>
+                            <th scope="col">AMBITO</th>
+                            <th scope="col">ANDALUCIA</th>
+                            <th scope="col">ARAGON</th>
+                            <th scope="col">ASTURIAS</th>
+                            <th scope="col">BALEARS</th>
+                            <th scope="col">CANARIAS</th>
+                            <th scope="col">CANTABRIA</th>
+                            <th scope="col">CASTILLA_LEON</th>
+                            <th scope="col">CASTILLA_LA_MANCHA</th>
+                            <th scope="col">CATALUNIA</th>
+                            <th scope="col">COMUNITAT_VALENCIANA</th>
+                            <th scope="col">EXTREMADURA</th>
+                            <th scope="col">GALICIA</th>
+                            <th scope="col">MADRID</th>
+                            <th scope="col">MURCIA</th>
+                            <th scope="col">NAVARRA</th>
+                            <th scope="col">PAIS_VASCO</th>
+                            <th scope="col">RIOJA</th>
+                            <th scope="col">TOTAL_NACIONAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $resultado = mysqli_query($conexion, $sql_espania);
+                        while ($srow = mysqli_fetch_assoc($resultado)) { ?>
+                            <tr>
+                                <td scope="row"><?php echo $srow["PERIODO"]; ?></td>
+                                <td scope="row"><?php echo $srow["SECTOR"]; ?></td>
+                                <td scope="row"><?php echo $srow["TIPO"]; ?></td>
+                                <td scope="row"><?php echo $srow["AMBITO"]; ?></td>
+                                <td scope="row"><?php echo $srow["ANDALUCIA"]; ?></td>
+                                <td scope="row"><?php echo $srow["ARAGON"]; ?></td>
+                                <td scope="row"><?php echo $srow["ASTURIAS"]; ?></td>
+                                <td scope="row"><?php echo $srow["BALEARS"]; ?></td>
+                                <td scope="row"><?php echo $srow["CANARIAS"]; ?></td>
+                                <td scope="row"><?php echo $srow["CANTABRIA"]; ?></td>
+                                <td scope="row"><?php echo $srow["CASTILLA_LEON"]; ?></td>
+                                <td scope="row"><?php echo $srow["CASTILLA_LA_MANCHA"]; ?></td>
+                                <td scope="row"><?php echo $srow["CATALUNIA"]; ?></td>
+                                <td scope="row"><?php echo $srow["COMUNITAT_VALENCIANA"]; ?></td>
+                                <td scope="row"><?php echo $srow["EXTREMADURA"]; ?></td>
+                                <td scope="row"><?php echo $srow["GALICIA"]; ?></td>
+                                <td scope="row"><?php echo $srow["MADRID"]; ?></td>
+                                <td scope="row"><?php echo $srow["MURCIA"]; ?></td>
+                                <td scope="row"><?php echo $srow["NAVARRA"]; ?></td>
+                                <td scope="row"><?php echo $srow["PAIS_VASCO"]; ?></td>
+                                <td scope="row"><?php echo $srow["RIOJA"]; ?></td>
+                                <td scope="row"><?php echo $srow["TOTAL_NACIONAL"]; ?></td>
+                            </tr>
+                        <?php  }
+                        mysqli_free_result($resultado); ?>
+                    </tbody>
+                </table>
+            <?php
+                break;
+            case 3: //areas
+            ?>
+                <table class="table table-sm table-dark table-responsive table-hover table-bordered">
+                    <caption>Ambiente Biodiversidad áreas protegidas 2011-2019</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">ID_AREASPROTEGIDAS</th>
+                            <th scope="col">ANIO_AREASPROTEGIDAS</th>
+                            <th scope="col">PAIS_AREASPROTEGIDAS</th>
+                            <th scope="col">CAT_AREASPROTEGIDAS</th>
+                            <th scope="col">UNIDAD_AREASPROTEGIDAS</th>
+                            <th scope="col">IMPORT_AREASPROTEGIDAS</th>
+                            <th scope="col">USO_AREASPROTEGIDAS</th>
+                            <th scope="col">GAS_AREASPROTEGIDAS</th>
+                            <th scope="col">ZONAS_AREASPROTEGIDAS</th>
+                            <th scope="col">INVERSION_AREASPROTEGIDAS</th>
+                            <th scope="col">TRATAMIENTO_AREASPROTEGIDAS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $resultado = mysqli_query($conexion, $sql_areas);
+                        while ($srow = mysqli_fetch_assoc($resultado)) { ?>
+                            <tr>
+                                <td scope="row"><?php echo $srow["ID_AREASPROTEGIDAS"]; ?></td>
+                                <td scope="row"><?php echo $srow["ANIO_AREASPROTEGIDAS"]; ?></td>
+                                <td scope="row"><?php echo $srow["PAIS_AREASPROTEGIDAS"]; ?></td>
+                                <td scope="row"><?php echo $srow["CAT_AREASPROTEGIDAS"]; ?></td>
+                                <td scope="row"><?php echo $srow["UNIDAD_AREASPROTEGIDAS"]; ?></td>
+                                <td scope="row"><?php echo $srow["IMPORT_AREASPROTEGIDAS"]; ?></td>
+                                <td scope="row"><?php echo $srow["USO_AREASPROTEGIDAS"]; ?></td>
+                                <td scope="row"><?php echo $srow["GAS_AREASPROTEGIDAS"]; ?></td>
+                                <td scope="row"><?php echo $srow["ZONAS_AREASPROTEGIDAS"]; ?></td>
+                                <td scope="row"><?php echo $srow["INVERSION_AREASPROTEGIDAS"]; ?></td>
+                                <td scope="row"><?php echo $srow["TRATAMIENTO_AREASPROTEGIDAS"]; ?></td>
+                            </tr>
+                        <?php  }
+                        mysqli_free_result($resultado); ?>
+                    </tbody>
+                </table>
+            <?php
+                break;
+            case 4: //ods
+            ?>
+                <table class="table table-sm table-dark table-responsive table-hover table-bordered">
+                    <caption>ODS Objetivo Desarrollo Sostenible</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">OBJETIVO</th>
+                            <th scope="col">NOMBRE</th>
+                            <th scope="col">DESCRIPCIÓN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $resultado = mysqli_query($conexion, $sql_ods);
+                        while ($srow = mysqli_fetch_assoc($resultado)) { ?>
+                            <tr>
+                                <td scope="row"><?php echo $srow["ID"]; ?></td>
+                                <td scope="row"><?php echo $srow["OBJETIVO"]; ?></td>
+                                <td scope="row"><?php echo $srow["NOMBRE"]; ?></td>
+                                <td scope="row"><?php echo $srow["DESCRIPCIÓN"]; ?></td>
+                            </tr>
+                        <?php  }
+                        mysqli_free_result($resultado); ?>
+                    </tbody>
+                </table>
+            <?php
+                break;
+            case 5: //ambito
+            ?>
+                <table class="table table-sm table-dark table-responsive table-hover table-bordered">
+                    <caption>Ambito VAR Flow ODS</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">CÓDIGO</th>
+                            <th scope="col">AMBITO_VAR_FLOW</th>
+                            <th scope="col">CÓD. ODS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $resultado = mysqli_query($conexion, $sql_var_flow);
+                        while ($srow = mysqli_fetch_assoc($resultado)) { ?>
+                            <tr>
+                                <th scope="row"><?php echo $srow["ID"]; ?></th>
+                                <td scope="col"><?php echo $srow["CODIGO"]; ?></td>
+                                <td scope="col"><?php echo $srow["AMBITO_VAR_FLOW"]; ?></td>
+                                <td scope="col"><?php echo $srow["ODS"]; ?></td>
+                            </tr>
+                        <?php  }
+                        mysqli_free_result($resultado); ?>
+                    </tbody>
+                </table>
+            <?php
+                break;
+            case 6: //paises
+            ?>
+                <table class="table table-sm table-dark table-responsive table-hover table-bordered">
+                    <caption>Países ISO 3166_1 Cod2-3 caracteres</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">NOMBRE</th>
+                            <th scope="col">NAME</th>
+                            <th scope="col">NOM</th>
+                            <th scope="col">ISO2</th>
+                            <th scope="col">ISO3</th>
+                            <th scope="col">PHONE_CODE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $resultado = mysqli_query($conexion, $sql_pais);
+                        while ($srow = mysqli_fetch_assoc($resultado)) { ?>
+                            <tr>
+                                <td scope="row"><?php echo $srow["ID"]; ?></td>
+                                <td scope="row"><?php echo $srow["NOMBRE"]; ?></td>
+                                <td scope="row"><?php echo $srow["NAME"]; ?></td>
+                                <td scope="row"><?php echo $srow["NOM"]; ?></td>
+                                <td scope="row"><?php echo $srow["ISO2"]; ?></td>
+                                <td scope="row"><?php echo $srow["ISO3"]; ?></td>
+                                <td scope="row"><?php echo $srow["PHONE_CODE"]; ?></td>
+                            </tr>
+                        <?php  }
+                        mysqli_free_result($resultado); ?>
+                    </tbody>
+                </table>
+        <?php
+                break;
+        }
 
+        ?>
 
-
-
-        </div>
     </section>
 
 

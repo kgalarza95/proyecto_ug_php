@@ -14,3 +14,6 @@ if (!$conexion) {
     echo ("Conexion exitosa =) ");
 }
 */
+
+mysqli_select_db($conexion, $database);
+return $conexion;
