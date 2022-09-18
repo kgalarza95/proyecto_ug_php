@@ -37,9 +37,9 @@ $sql = "SELECT p.NOMBRE, pe.* FROM bd_php_p2.petroleo_p3 pe join bd_php_p2.pais 
       <!-- <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4"> -->
       <main role="main" class="col-sm-12">
          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="mb-3 my-4 ">
+            <h1 class="mb-3 my-4 titulo">
                Pág. #12 - Dashboard
-               <strong class="letra-negra font-weight-bold">Información Energética </strong>
+               <strong class="letra-negra font-weight-bold titulo">Información Energética </strong>
             </h1>
          </div>
 
@@ -58,7 +58,7 @@ $sql = "SELECT p.NOMBRE, pe.* FROM bd_php_p2.petroleo_p3 pe join bd_php_p2.pais 
          <article class="row">
 
             <div class="col-md-12">
-               <h1 class="mb-3 my-4 text-center">
+               <h1 class="mb-3 my-4 text-center titulo">
                   Datos
 
                </h1>

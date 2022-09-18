@@ -24,10 +24,10 @@
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="pagina1.php">Página #1 - Registro Admin</a>
-                    <a class="dropdown-item" href="contactenos.php">Contactenos #4</a>
+                    <a class="dropdown-item" href="contactenos.php">Página #4 - Contactenos</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="suscripcion.php">Suscripción #8</a>
-                    <a class="dropdown-item" href="mvc.php">Página #11</a>
+                    <a class="dropdown-item" href="suscripcion.php">Página #8 - Suscripción</a>
+                    <a class="dropdown-item" href="mvc.php">Página #11 - MVC</a>
                 </div>
             </li>
             <li class="nav-item dropdown">

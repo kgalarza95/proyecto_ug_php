@@ -34,9 +34,9 @@ $sql = "SELECT p.NOMBRE, pe.* FROM bd_php_p2.petroleo_p3 pe join bd_php_p2.pais 
         <article class="row">
 
             <div class="col-md-12">
-                <h1 class="mb-3 my-4 text-center">
+                <h1 class="mb-3 my-4 text-center titulo">
                     Información de
-                    <strong class="letra-negra font-weight-bold">Venta de petroleo </strong>
+                    <strong class="letra-negra font-weight-bold titulo">Venta de petroleo </strong>
                 </h1>
                 <div class="table-wrapper-scroll-y my-custom-scrollbar">
                     <!-- <table class="table table-sm table-dark  table-hover table-bordered table-striped" style="width: 100%"> -->

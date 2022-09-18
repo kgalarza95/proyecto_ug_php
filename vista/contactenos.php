@@ -20,7 +20,7 @@
 
 
 
-                <form action="#" method="POST" class="p-5 bg-white">
+                <form action="../controller/contactanosController.php" method="POST" class="p-5 bg-white">
 
                     <div class="row form-group">
                         <div class="col-md-12 mb-3 mb-md-0">
@@ -53,7 +53,7 @@
 
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary pill px-4 py-2" id="btn-enviar">Contactarme</button>
+                            <button type="submit" class="btn btn-primary pill px-4 py-2" id="btn_enviar" name="btn_enviar" value="Contactarme">Contactarme</button>
                         </div>
                     </div>
 
@@ -66,14 +66,14 @@
             <div class="col-lg-4">
                 <div class="p-4 mb-3 bg-white">
                     <h3 class="mb-3 my-4 text-center">
-                        Lista de
-                        <strong class="letra-negra font-weight-bold">Espera </strong>
+                        Número de lista de
+                        <strong class="letra-negra font-weight-bold">espera:
+                            <?php
+                            include_once "../controller/contactanosController.php";
+                            ?>
+                        </strong>
                     </h3>
 
-                    <!-- <h3 class="h5 letra-negra mb-3"></h3> -->
-                    <div id="colaboradores">
-                    </div>
-                    <div id="nuevoColaborador"></div>
                 </div>
             </div>
 
