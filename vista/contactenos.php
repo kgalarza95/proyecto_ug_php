@@ -16,7 +16,7 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-sm-6 col-lg-6 mb-5">
+            <div class="col-sm-8 mb-5">
 
 
 
@@ -63,16 +63,14 @@
 
             </div>
 
-            <div class="col-lg-4">
-                <div class="p-4 mb-3 bg-white">
-                    <h3 class="mb-3 my-4 text-center">
-                        Número de lista de
-                        <strong class="letra-negra font-weight-bold">espera:
-                            <?php
-                            include_once "../controller/contactanosController.php";
-                            ?>
-                        </strong>
-                    </h3>
+            <div class="col-sm-4 text-center ">
+                <div class="bg-white mt-5">
+                    <h4 class="titulo">
+                        Número de lista de espera:
+                        <?php
+                        include_once "../controller/contactanosController.php";
+                        ?>
+                    </h4>
 
                 </div>
             </div>

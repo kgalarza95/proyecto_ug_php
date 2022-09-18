@@ -30,6 +30,8 @@ class MvcModel
         return $result;
     }
 
+
+    //en desuso
     function getRegistrosList()
     {
         include_once '../config/conexion.php';

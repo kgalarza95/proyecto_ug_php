@@ -55,7 +55,7 @@
 
             <div class="col-sm-12 mb-5">
 
-                <form action="../controller/contactanosController.php" method="POST" class="p-5 bg-white">
+                <form action="../controller/mvcController.php" method="POST" class="p-5 bg-white">
 
                     <div class="row form-group">
                         <div class="col-md-12 mb-3 mb-md-0">
@@ -84,7 +84,7 @@
                         </div>
                     </div>
 
-
+                    <input type="hidden" id="id" name="id">
 
                     <div class="row form-group">
                         <div class="col-md-12">
@@ -105,8 +105,7 @@
     <?php include_once "../generales/footer.php"; ?>
     <?php include_once "../generales/scripts.php"; ?>
 
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+   
 </body>
 
 </html>

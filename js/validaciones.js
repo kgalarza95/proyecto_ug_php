@@ -58,7 +58,6 @@ function llenarTabla(tabla, filas) {
     ],
   });
 
-
   var table = $("#" + tabla).DataTable();
 
   $("#" + tabla + " tbody").on("click", "tr", function () {
@@ -69,6 +68,7 @@ function llenarTabla(tabla, filas) {
       document.getElementById("email").value = "";
       document.getElementById("telefono").value = "";
       document.getElementById("mensaje").value = "";
+      document.getElementById("id").value = "";
     } else {
       table.$("tr.selected").removeClass("selected");
       $(this).addClass("selected");
@@ -78,6 +78,7 @@ function llenarTabla(tabla, filas) {
         .data();
 
       idRegistro = datoCelda.id;
+      document.getElementById("id").value = datoCelda.id;
       document.getElementById("nombre").value = datoCelda.nombre;
       document.getElementById("email").value = datoCelda.correo;
       document.getElementById("telefono").value = datoCelda.mensaje;
@@ -88,13 +89,15 @@ var idRegistro;
 
 $(document).ready(function () {
   llenarTabla("tblInf", []);
+
 });
+
+
 
 const getData = async () => {
   const data = await fetch("../controller/mvcController.php?vl=10");
   if (data.status === 200) {
     const datos = await data.json();
-    console.log(datos);
     llenarTabla("tblInf", datos);
   }
 };

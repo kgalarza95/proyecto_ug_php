@@ -39,7 +39,7 @@
                     <a class="dropdown-item" href="pagina5.php">Página #5 - Consultas</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="preguntas.php">Página #6 - Preguntas</a>
-                    <a class="dropdown-item" href="pagina7.php">Página #7 - Filtros</a>
+                    <a class="dropdown-item" href="pagina7.php">Página #7 - Datos Búsqueda</a>
                 </div>
             </li>
             <li class="nav-item dropdown">

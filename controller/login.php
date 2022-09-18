@@ -9,7 +9,7 @@ if (isset($_POST['inputEmail']) && isset($_POST['inputPassword'])) {
     $usuario = $_POST['inputEmail'];
     $clave = $_POST['inputPassword'];
 
-    $query = "select * from usuario u where u.usuario = '$usuario' and pass = '$clave' ";
+    $query = "select * from usuario u where u.usuario = '$usuario' and pass = '$clave' and BLOQUEO = 'N'";
     $result = mysqli_query($conexion, $query);
 
 
@@ -31,7 +31,7 @@ if (isset($_POST['inputEmail']) && isset($_POST['inputPassword'])) {
         header("Location: ../vista/index.php");
         die();
     } else {
-        $mensaje_error = "Credenciales incorrectas";
+        $mensaje_error = "Credenciales incorrectas o usuario bloqueado";
         echo "Credenciales incorrectas";
         header("Location: ../vista/login.php?mensaje=$mensaje_error");
         die();

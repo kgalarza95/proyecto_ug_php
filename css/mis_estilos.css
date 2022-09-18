@@ -18,4 +18,10 @@ footer .texto {
 
 .titulo:hover {
     color: #28a745;
+    /* background-color: #323a40; */
 }
+
+/* .titulo {
+    color: white;
+    background-color: #323a40;
+} */
