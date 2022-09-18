@@ -80,8 +80,7 @@ function llenarTabla(tabla, filas) {
       idRegistro = datoCelda.id;
       document.getElementById("nombre").value = datoCelda.nombre;
       document.getElementById("email").value = datoCelda.correo;
-      document.getElementById("telefono").value = datoCelda.respuesta;
-      document.getElementById("mensaje").value = datoCelda.mensaje;
+      document.getElementById("telefono").value = datoCelda.mensaje;
     }
   });
 }
