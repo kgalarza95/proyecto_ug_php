@@ -30,26 +30,26 @@
       </div><br>
       <hr>
       <dl>
+
          <dt>
-            <h2>Desarrollo</h2>
+            <h2>Estudiantes Responsables</h2>
          </dt>
          <dd class="titulo">
-            <h3 class="titulo">- Gary Gomez</h3>
+            <h3 class="titulo">- GÓMEZ ROMERO GARY ALEJANDRO</h3>
          </dd>
-         <hr>
-         <dt>
-            <h2>Recomendaciones</h2>
-         </dt>
          <dd class="titulo">
-            <h3 class="titulo">- Kevyn Guzman</h3>
+            <h3 class="titulo">- GUZMÁN ZAMBRANO KEVYN OSWALDO</h3>
          </dd>
-         <hr>
-         <dt>
-            <h2>Conclusiones</h2>
-         </dt>
          <dd class="titulo">
-            <h3 class="titulo">- Evelyn</h3>
+            <h3 class="titulo">- VERA ESPINOZA ISABEL ANAIS</h3>
          </dd>
+         <dd class="titulo">
+            <h3 class="titulo">- VERGARA TORRES JULIO CESAR</h3>
+         </dd>
+         <dd class="titulo">
+            <h3 class="titulo">- ALARCÓN TUMBACO EVELYN YULIANA</h3>
+         </dd>
+         
       </dl>
       <hr>
    </div>

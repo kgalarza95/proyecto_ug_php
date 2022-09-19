@@ -53,7 +53,7 @@ include_once("../controller/login.php");
     <input type="text" id="inputEmail" name="inputEmail" class="form-control" placeholder="Usuario" required autofocus>
     <label for="inputPassword" class="sr-only">Contraseña</label>
     <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Contraseña" required>
-    <div class="checkbox mb-3">
+    <div class="checkbox mb-3 d-none">
       <label>
         <input type="checkbox" value="remember-me"> Recordarme
       </label>

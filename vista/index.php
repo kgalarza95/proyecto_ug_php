@@ -2,7 +2,19 @@
 include("../config/conexion.php");
 $sql = "SELECT p.NOMBRE, pe.* FROM bd_php_p2.petroleo_p3 pe join bd_php_p2.pais p on p.id = pe.id_pais; ";
 
+
+// Si han aceptado la política
+if (isset($_REQUEST['politica-cookies'])) {
+   // Calculamos la caducidad, en este caso un año
+   $caducidad = time() + (60 * 60 * 24 * 365);
+   // Crea una cookie con la caducidad
+   setcookie('politica', 'true', $caducidad);
+}
+
+setcookie('politica', 'true', time() - 36000);
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -27,6 +39,86 @@ $sql = "SELECT p.NOMBRE, pe.* FROM bd_php_p2.petroleo_p3 pe join bd_php_p2.pais 
       .table-wrapper-scroll-y {
          display: block;
       }
+
+      .aviso-cookies {
+         display: none;
+         background: #fff;
+         padding: 20px;
+         width: calc(100% - 40px);
+         max-width: 800px;
+         line-height: 150%;
+         border-radius: 10px;
+         position: fixed;
+         bottom: 20px;
+         left: 0;
+         right: 0;
+         margin: auto;
+         z-index: 100;
+         padding-top: 60px;
+         box-shadow: 0px 2px 20px 10px rgba(222, 222, 222, .25);
+         text-align: center;
+      }
+
+      .aviso-cookies.activo {
+         display: block;
+      }
+
+      .aviso-cookies .galleta {
+         max-width: 100px;
+         position: absolute;
+         top: -50px;
+         left: calc(50% - 50px);
+      }
+
+      .aviso-cookies .titulo,
+      .aviso-cookies .parrafo {
+         margin-bottom: 15px;
+      }
+
+      .aviso-cookies .boton {
+         width: 100%;
+         background: #595959;
+         border: none;
+         color: #fff;
+         font-family: 'Roboto', sans-serif;
+         text-align: center;
+         padding: 15px 20px;
+         font-weight: 700;
+         cursor: pointer;
+         transition: .3s ease all;
+         border-radius: 5px;
+         margin-bottom: 15px;
+         font-size: 14px;
+      }
+
+      .aviso-cookies .boton:hover {
+         background: #000;
+      }
+
+      .aviso-cookies .enlace {
+         color: #4DBFFF;
+         text-decoration: none;
+         font-size: 14px;
+      }
+
+      .aviso-cookies .enlace:hover {
+         text-decoration: underline;
+      }
+
+      .fondo-aviso-cookies {
+         display: none;
+         background: rgba(0, 0, 0, .20);
+         position: fixed;
+         z-index: 99;
+         width: 100vw;
+         height: 100vh;
+         top: 0;
+         left: 0;
+      }
+
+      .fondo-aviso-cookies.activo {
+         display: block;
+      }
    </style>
 </head>
 
@@ -34,6 +126,8 @@ $sql = "SELECT p.NOMBRE, pe.* FROM bd_php_p2.petroleo_p3 pe join bd_php_p2.pais 
 <body>
    <?php include_once "../generales/nav_bar.php" ?>
    <div class="container">
+
+
       <!-- <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4"> -->
       <main role="main" class="col-sm-12">
          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -94,12 +188,17 @@ $sql = "SELECT p.NOMBRE, pe.* FROM bd_php_p2.petroleo_p3 pe join bd_php_p2.pais 
                </div>
             </div>
          </article>
-
-
       </main>
 
    </div>
 
+   <div class="aviso-cookies" id="aviso-cookies">
+      <h3 class="titulo">Cookies</h3>
+      <p class="parrafo">Utilizamos cookies para mejorar nuestros servicios e interacción con el sistema.</p>
+      <button class="boton" id="btn-aceptar-cookies">De acuerdo</button>
+      <a class="enlace" href="aviso_cookies.php" target="_blank">Aviso de Cookies</a>
+   </div>
+   <div class="fondo-aviso-cookies" id="fondo-aviso-cookies"></div>
 
 
    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -115,6 +214,63 @@ $sql = "SELECT p.NOMBRE, pe.* FROM bd_php_p2.petroleo_p3 pe join bd_php_p2.pais 
 
    <?php include_once "../generales/footer.php"; ?>
    <?php include_once "../generales/scripts.php"; ?>
+
+
+   <script>
+      /* ésto comprueba la localStorage si ya tiene la variable guardada */
+      /*  function compruebaAceptaCookies() {
+           if (localStorage.aceptaCookies != 'true') {
+              cajacookies.style.display = 'block';
+           }
+        }*/
+
+      /* aquí guardamos la variable de que se ha
+      aceptado el uso de cookies así no mostraremos
+      el mensaje de nuevo */
+      /* function aceptarCookies() {
+          localStorage.aceptaCookies = 'true';
+          cajacookies.style.display = 'none';
+       }*/
+
+      /* ésto se ejecuta cuando la web está cargada */
+      $(document).ready(function() {
+         // compruebaAceptaCookies();
+
+
+      });
+
+      const botonAceptarCookies = document.getElementById('btn-aceptar-cookies');
+      const avisoCookies = document.getElementById('aviso-cookies');
+      const fondoAvisoCookies = document.getElementById('fondo-aviso-cookies');
+
+      dataLayer = [];
+      botonAceptarCookies.addEventListener('click', () => {
+         avisoCookies.classList.remove('activo');
+         fondoAvisoCookies.classList.remove('activo');
+
+         localStorage.setItem('cookies-aceptadas', true);
+
+         dataLayer.push({
+            'event': 'cookies-aceptadas'
+         });
+
+         const data = fetch("../controller/cookiesController.php?vl=10");
+         if (data.status === 200) {
+            const datos = data.json();
+            console.log(datos);
+         }
+
+
+      });
+      if (!localStorage.getItem('cookies-aceptadas')) {
+         avisoCookies.classList.add('activo');
+         fondoAvisoCookies.classList.add('activo');
+      } else {
+         dataLayer.push({
+            'event': 'cookies-aceptadas'
+         });
+      }
+   </script>
 </body>
 
 </html>
