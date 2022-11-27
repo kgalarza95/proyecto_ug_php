@@ -137,17 +137,16 @@ setcookie('politica', 'true', time() - 36000);
             </h1>
          </div>
 
-         <canvas class="my-4 w-100" id="myChart" width="900" height="380">
-
-         </canvas>
-
-         <canvas class="my-4 w-100" id="chartBarras" width="900" height="380">
-
-         </canvas>
-
          <canvas class="my-4 w-100" id="chartPastel" width="900" height="380">
-
          </canvas>
+         <canvas class="my-4 w-100" id="chartBarras" width="900" height="380">
+         </canvas>
+         <canvas class="my-4 w-100" id="myChart" width="900" height="380">
+         </canvas>
+
+
+
+
 
          <article class="row">
 
